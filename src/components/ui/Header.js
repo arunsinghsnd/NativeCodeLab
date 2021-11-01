@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "3em",
   },
   logo: {
-    height: "6em",
+    height: "7em",
   },
 }));
 
