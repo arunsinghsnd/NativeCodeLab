@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
+import { Menu, MenuItem } from "@material-ui/core";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -56,6 +57,22 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleChange = (event, value) => {
+    setValue(value);
+  };
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
@@ -72,10 +89,6 @@ const Header = () => {
       setValue(5);
     }
   }, [value]);
-
-  const handleChange = (event, value) => {
-    setValue(value);
-  };
 
   return (
     <>
@@ -104,8 +117,11 @@ const Header = () => {
                 label="Home"
               />
               <Tab
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? "true" : undefined}
                 className={classes.tab}
                 component={Link}
+                onMouseOver={event => handleClick(event)}
                 to="/services"
                 label="Services"
               />
@@ -135,6 +151,54 @@ const Header = () => {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+            >
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/services"
+              >
+                Services
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/customsoftware"
+              >
+                Custom Software
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/mobileapps"
+              >
+                Mobile App Development
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+                component={Link}
+                to="/websites"
+              >
+                Website Development
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
