@@ -180,8 +180,8 @@ const Header = () => {
       mouseOver: event => handleClick(event),
     },
     { name: "The Revolution", link: "/revolution", activeIndex: 2 },
-    { name: "About", link: "/about", activeIndex: 3 },
-    { name: "Contact", link: "/contact", activeIndex: 4 },
+    { name: "About Us", link: "/about", activeIndex: 3 },
+    { name: "Contact Us", link: "/contact", activeIndex: 4 },
   ];
 
   useEffect(() => {
@@ -228,7 +228,7 @@ const Header = () => {
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
-        openMenu={openMenu}
+        open={openMenu}
         onClose={handleClose}
         classes={{ paper: classes.menu }}
         MenuListProps={{ onMouseLeave: handleClose }}
@@ -301,7 +301,7 @@ const Header = () => {
             component={Link}
             to="/estimate"
             selected={value === 5}
-            class={{
+            classes={{
               root: classes.drawerItemEstimate,
               selected: classes.drawerItemSelected,
             }}
