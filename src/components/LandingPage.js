@@ -10,6 +10,7 @@ import {
 
 import animationData from "../animations/landinganimation/data";
 import ButtonArrow from "../components/ui/ButtonArrow";
+import customSoftware from "../assets/Custom Software Icon.svg";
 
 const useStyle = makeStyles(theme => ({
   animation: {
@@ -36,16 +37,16 @@ const useStyle = makeStyles(theme => ({
     marginTop: "10em",
   },
   learnButtonHero: {
-    borderColor: theme.palette.common.blue,
-    color: theme.palette.common.blue,
-    borderWidth: 2,
-    textTransform: "none",
-    borderRadius: 50,
-    fontFamily: "Roboto",
-    fontWeight: "bold",
+    ...theme.typography.learnButtom,
     fontSize: "0.9rem",
     height: 45,
     width: 145,
+  },
+  learnButton: {
+    ...theme.typography.learnButtom,
+    fontSize: "0.9rem",
+    height: 45,
+    padding: 5,
   },
   mainContainer: {
     marginTop: "5em",
@@ -62,6 +63,13 @@ const useStyle = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
     },
+  },
+  specialText: {
+    fontFamily: "Pacifico",
+    color: theme.palette.common.orange,
+  },
+  subtitle: {
+    marginBottom: "1em",
   },
 }));
 
@@ -80,6 +88,7 @@ const LandingPage = () => {
   return (
     <Grid container direction="column" className={classes.mainContainer}>
       <Grid item>
+        {/*-----Hero Block Start-------*/}
         <Grid
           container
           justifyContent="flex-end"
@@ -119,6 +128,34 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
+      {/*-----Hero Block End-------*/}
+      {/*-----Services Block Start-------*/}
+      <Grid item>
+        <Grid container direction="row">
+          <Grid itme>
+            <Typography variant="h4">Custom Software Development</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Save Energy. Save Time. Save Money
+            </Typography>
+            <Typography variant="subtitle1">
+              Complete digital solutions, from investigation to{" "}
+              <span className={classes.specialText}>celebration</span>
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{ marginRight: 10 }}>Learn More</span>
+              <ButtonArrow
+                height={15}
+                width={15}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img alt="custom software icon" src={customSoftware} />
+          </Grid>
+        </Grid>
+      </Grid>
+      {/*-----Services Block End-------*/}
     </Grid>
   );
 };
