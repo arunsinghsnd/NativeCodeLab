@@ -28,5 +28,12 @@ export default createTheme({
       fontSize: "1rem",
       color: "white",
     },
+    h2: {
+      fontFamily: "Ralewaye",
+      fontWeight: 700,
+      fontSize: "2.5rem",
+      color: `${arcBlue}`,
+      lineHeight: 1.5,
+    },
   },
 });
