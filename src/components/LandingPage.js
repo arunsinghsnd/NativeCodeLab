@@ -5,6 +5,7 @@ import {
   Grid,
   makeStyles,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@material-ui/core";
 
@@ -47,6 +48,9 @@ const useStyle = makeStyles(theme => ({
     fontSize: "0.9rem",
     height: 45,
     padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em",
+    },
   },
   mainContainer: {
     marginTop: "5em",
@@ -71,11 +75,24 @@ const useStyle = makeStyles(theme => ({
   subtitle: {
     marginBottom: "1em",
   },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0,
+    },
+  },
+  serviceContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25,
+    },
+  },
 }));
 
 const LandingPage = () => {
   const classes = useStyle();
   const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const defaultOptions = {
     loop: true,
@@ -131,8 +148,19 @@ const LandingPage = () => {
       {/*-----Hero Block End-------*/}
       {/*-----Services Block Start-------*/}
       <Grid item>
-        <Grid container direction="row">
-          <Grid itme>
+        <Grid
+          container
+          direction="row"
+          justifyContent={matchesSM ? "center" : undefined}
+          className={classes.serviceContainer}
+        >
+          <Grid
+            itme
+            style={{
+              marginLeft: matchesSM ? 0 : "5em",
+              textAlign: matchesSM ? "center" : undefined,
+            }}
+          >
             <Typography variant="h4">Custom Software Development</Typography>
             <Typography variant="subtitle1" className={classes.subtitle}>
               Save Energy. Save Time. Save Money
@@ -151,7 +179,11 @@ const LandingPage = () => {
             </Button>
           </Grid>
           <Grid item>
-            <img alt="custom software icon" src={customSoftware} />
+            <img
+              className={classes.icon}
+              alt="custom software icon"
+              src={customSoftware}
+            />
           </Grid>
         </Grid>
       </Grid>
