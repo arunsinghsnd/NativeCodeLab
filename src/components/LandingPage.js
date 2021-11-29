@@ -13,6 +13,7 @@ import animationData from "../animations/landinganimation/data";
 import ButtonArrow from "../components/ui/ButtonArrow";
 import customSoftware from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
+import websitesIcon from "../assets/websiteIcon.svg";
 
 const useStyle = makeStyles(theme => ({
   animation: {
@@ -224,6 +225,47 @@ const LandingPage = () => {
               className={classes.icon}
               alt="Android/iOS App Development icon"
               src={mobileAppsIcon}
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+      {/*-----Android/IOS Block End-------*/}
+      {/*-----Websites Block Start-------*/}
+      <Grid item>
+        <Grid
+          container
+          direction="row"
+          justifyContent={matchesSM ? "center" : undefined}
+          className={classes.serviceContainer}
+        >
+          <Grid
+            itme
+            style={{
+              marginLeft: matchesSM ? 0 : "5em",
+              textAlign: matchesSM ? "center" : undefined,
+            }}
+          >
+            <Typography variant="h4">Website Development</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Reach More. Discover More. Sell More.
+            </Typography>
+            <Typography variant="subtitle1">
+              Optimized for Search Engines, built for speed.
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{ marginRight: 10 }}>Learn More</span>
+              <ButtonArrow
+                height={15}
+                width={15}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img
+              className={classes.icon}
+              alt="Website software icon"
+              src={websitesIcon}
             />
           </Grid>
         </Grid>
