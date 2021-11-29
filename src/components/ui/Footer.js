@@ -115,7 +115,7 @@ const Footer = props => {
                   }}
                   className={classes.link}
                 >
-                  Mobile App Developement
+                 Android/iOS App Development
                 </Grid>
                 <Grid
                   item
