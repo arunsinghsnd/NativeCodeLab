@@ -8,7 +8,7 @@ import {
   useMediaQuery,
   useTheme,
   Card,
-  CardContent
+  CardContent,
 } from "@material-ui/core";
 
 import animationData from "../animations/landinganimation/data";
@@ -17,7 +17,7 @@ import customSoftware from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
 import revolutionBackground from "../assets/repeatingBackground.svg";
-
+import infoBackground from "../assets/infoBackground.svg";
 
 const useStyle = makeStyles(theme => ({
   animation: {
@@ -93,7 +93,7 @@ const useStyle = makeStyles(theme => ({
       padding: 25,
     },
   },
-  revolutionBackground:{
+  revolutionBackground: {
     backgroundImage: `url(${revolutionBackground})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -101,7 +101,7 @@ const useStyle = makeStyles(theme => ({
     height: "100%",
     width: "100%",
   },
-  revolutionCard:{
+  revolutionCard: {
     position: "absolute",
     boxShadow: theme.shadows[10],
     borderRadius: 15,
@@ -114,14 +114,22 @@ const useStyle = makeStyles(theme => ({
       borderRadius: 0,
       width: "100%",
     },
-  }
-
+  },
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "center",
+    height: "100%",
+    width: "100%",
+  },
 }));
 
 const LandingPage = () => {
   const classes = useStyle();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const defaultOptions = {
     loop: true,
@@ -184,7 +192,7 @@ const LandingPage = () => {
           className={classes.serviceContainer}
         >
           <Grid
-            itme
+            item
             style={{
               marginLeft: matchesSM ? 0 : "5em",
               textAlign: matchesSM ? "center" : undefined,
@@ -226,7 +234,7 @@ const LandingPage = () => {
           className={classes.serviceContainer}
         >
           <Grid
-            itme
+            item
             style={{
               textAlign: matchesSM ? "center" : undefined,
             }}
@@ -236,7 +244,8 @@ const LandingPage = () => {
               Extend Functionality. Extend Access. Increase Engagement.
             </Typography>
             <Typography variant="subtitle1">
-              Integrate your web experince or create a standalone app{matchesSM ?  null : <br/>} with either mobile platform.
+              Integrate your web experince or create a standalone app
+              {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
             <Button variant="outlined" className={classes.learnButton}>
               <span style={{ marginRight: 10 }}>Learn More</span>
@@ -247,7 +256,7 @@ const LandingPage = () => {
               />
             </Button>
           </Grid>
-          <Grid item style={{ marginRight: matchesSM ? 0 : "5em",}}>
+          <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
             <img
               className={classes.icon}
               alt="Android/iOS App Development icon"
@@ -266,7 +275,7 @@ const LandingPage = () => {
           className={classes.serviceContainer}
         >
           <Grid
-            itme
+            item
             style={{
               marginLeft: matchesSM ? 0 : "5em",
               textAlign: matchesSM ? "center" : undefined,
@@ -298,37 +307,124 @@ const LandingPage = () => {
         </Grid>
       </Grid>
       {/*-----Website Developemnt  Block End-------*/}
+      {/*-----The Revoluiton  Block Start-------*/}
       <Grid item>
-      <Grid container style={{height: "100em", marginTop: "12em"}} alignItems="center" justifyContent="center">
-      <Card className={classes.revolutionCard}>
-          <CardContent>
-            <Grid container direction="column" style={{textAlign: "center"}}>
+        <Grid
+          container
+          style={{ height: "80em", marginTop: "4em" }}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Card className={classes.revolutionCard}>
+            <CardContent>
+              <Grid
+                container
+                direction="column"
+                style={{ textAlign: "center" }}
+              >
                 <Grid item>
-                <Typography variant="h3" gutterBottom>
-                The Revolution
-                </Typography>
+                  <Typography variant="h3" gutterBottom>
+                    The Revolution
+                  </Typography>
                 </Grid>
-                <Grid item  >
-                <Typography variant="subtitle1">
-                Visionary insights coupled with cutting-edge technology is a recipe for Revolution
-                </Typography>
-                <Button variant="outlined" className={classes.learnButton}>
-              <span style={{ marginRight: 10 }}>Learn More</span>
-              <ButtonArrow
-                height={15}
-                width={15}
-                fill={theme.palette.common.blue}
-              />
-            </Button>
-                
+                <Grid item>
+                  <Typography variant="subtitle1">
+                    Visionary insights coupled with cutting-edge technology is a
+                    recipe for Revolution
+                  </Typography>
+                  <Button variant="outlined" className={classes.learnButton}>
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow
+                      height={15}
+                      width={15}
+                      fill={theme.palette.common.blue}
+                    />
+                  </Button>
                 </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+          <div className={classes.revolutionBackground} />
+        </Grid>
+      </Grid>
+      {/*-----The Revoluiton  Block End-------*/}
+      {/*-----The Information  Block Start-------*/}
+      <Grid item>
+        <Grid
+          container
+          style={{ height: "60em" }}
+          alignItems="center"
+          direction="row"
+        >
+          <Grid
+            item
+            container
+            style={{
+              position: "absolute",
+              textAlign: matchesXS ? "center" : "inherit",
+            }}
+            direction={matchesXS ? "column" : "row"}
+            spacing={matchesXS ? 10 : 0}
+          >
+            <Grid
+              item
+              sm
+              style={{ marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5em" }}
+            >
+              <Grid container direction="column">
+                <Typography variant="h2" style={{ color: "white" }}>
+                  About Us
+                </Typography>
+                <Typography variant="subtitle2">Let's get personal</Typography>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    style={{ color: "white", borderColor: "white" }}
+                    className={classes.learnButton}
+                  >
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow height={15} width={15} fill="white" />
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
-         </CardContent>
-        </Card>
-        <div className={classes.revolutionBackground}/>
+
+            <Grid
+              item
+              sm
+              style={{
+                marginRight: matchesXS ? 0 : matchesSM ? "2em" : "5em",
+                textAlign: matchesXS ? "center" : "inherit",
+              }}
+            >
+              <Grid container direction="column">
+                <Typography variant="h2" style={{ color: "white" }}>
+                  Contact Us
+                </Typography>
+                <Typography variant="subtitle2">
+                  Say hello!{" "}
+                  <span role="img" aria-level="waving hand">
+                    👋
+                  </span>
+                </Typography>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    style={{ color: "white", borderColor: "white" }}
+                    className={classes.learnButton}
+                  >
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow height={15} width={15} fill="white" />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <div className={classes.infoBackground} />
+        </Grid>
       </Grid>
-        
-      </Grid>
+      {/*-----The Information  Block End-------*/}
     </Grid>
   );
 };
