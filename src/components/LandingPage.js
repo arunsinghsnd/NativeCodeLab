@@ -18,6 +18,7 @@ import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
 import revolutionBackground from "../assets/repeatingBackground.svg";
 import infoBackground from "../assets/infoBackground.svg";
+import CallToAction from "./ui/CallToAction";
 
 const useStyle = makeStyles(theme => ({
   animation: {
@@ -97,7 +98,7 @@ const useStyle = makeStyles(theme => ({
     backgroundImage: `url(${revolutionBackground})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "center",
+    backgroundSize: "cover",
     height: "100%",
     width: "100%",
   },
@@ -119,7 +120,7 @@ const useStyle = makeStyles(theme => ({
     backgroundImage: `url(${infoBackground})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "center",
+    backgroundSize: "cover",
     height: "100%",
     width: "100%",
   },
@@ -425,6 +426,11 @@ const LandingPage = () => {
         </Grid>
       </Grid>
       {/*-----The Information  Block End-------*/}
+      {/*-----The Call to action  Block Start-------*/}
+      <Grid item>
+        <CallToAction />
+      </Grid>
+      {/*-----The Call to action  Block End-------*/}
     </Grid>
   );
 };
