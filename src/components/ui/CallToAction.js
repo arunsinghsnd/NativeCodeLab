@@ -10,6 +10,7 @@ import {
 import ButtonArrow from "./ButtonArrow";
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   learnButton: {
@@ -42,6 +43,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.orange,
     fontSize: "1.5rem",
     marginRight: "5em",
+    marginLeft: "2em",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
       marginLeft: 0,
@@ -49,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const CallToAction = () => {
+const CallToAction = props => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -84,7 +89,13 @@ const CallToAction = () => {
               justifyContent={matchesSM ? "center" : undefined}
               item
             >
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button
+                variant="outlined"
+                className={classes.learnButton}
+                component={Link}
+                to="/revolution"
+                onClick={() => props.setValue(2)}
+              >
                 <span style={{ marginRight: 5 }}>Learn More</span>
                 <ButtonArrow
                   height={15}
@@ -97,7 +108,13 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Button variant="contained" className={classes.estimateButton}>
+        <Button
+          variant="contained"
+          className={classes.estimateButton}
+          component={Link}
+          to="/estimate"
+          onClick={() => props.setValue(5)}
+        >
           Free Estimate
         </Button>
       </Grid>
