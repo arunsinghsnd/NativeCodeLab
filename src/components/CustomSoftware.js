@@ -10,16 +10,16 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import ButtonArrow from "../components/ui/ButtonArrow";
-import customSoftware from "../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websitesIcon from "../assets/websiteIcon.svg";
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
 import lightbulb from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
 import Lottie from "react-lottie";
+import animationData from "../animations/landinganimation/data";
+
+import documentsAnimation from "../animations/documentsAnimation/data";
+import scaleAnimation from "../animations/scaleAnimation/data.json";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -34,12 +34,33 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "2em",
     paddingBottom: "10em",
   },
+  itemContainer: {
+    maxWidth: "30em",
+  },
 }));
 
 const CustomSoftware = props => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const documentsOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: documentsAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const scaleOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: scaleAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -154,6 +175,59 @@ const CustomSoftware = props => {
           </Grid>
           <Grid item>
             <img alt="Cash" src={cash} />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row">
+        <Grid item container className={classes.itemContainer}>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Digital Documents & Data</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body2" paragraph>
+                Reduce Errors. Reduce Waste. Reduce Costs.
+              </Typography>
+              <Typography variant="body2" paragraph>
+                Billions are spent annually on the purchasing, printing, and
+                distribution of paper. On top of the massive environmental
+                impact this has, it causes harm to your bottom line as well
+              </Typography>
+              <Typography variant="body2" paragraph>
+                By utilizing digital forms and documents you can remove these
+                obsolte expenses, accelerate your communication, and help the
+                Earth
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={documentsOptions}
+              style={{ maxHeight: 325, maxWidth: 275, minHeight: 275 }}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid item container className={classes.itemContainer}>
+          <Grid item md>
+            <Lottie
+              options={scaleOptions}
+              style={{ maxHeight: 260, maxWidth: 280 }}
+            />
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                Scale
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body2" align="right" paragraph>
+                Wheather you're a large brand, just getting started, or taking
+                off right mow, our application architecture ensure pain-free
+                growth and reliability
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
