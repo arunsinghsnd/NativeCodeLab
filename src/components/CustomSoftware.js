@@ -16,7 +16,6 @@ import lightbulb from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
 import Lottie from "react-lottie";
-import animationData from "../animations/landinganimation/data";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
@@ -35,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: "10em",
   },
   itemContainer: {
-    maxWidth: "30em",
+    maxWidth: "34em",
   },
 }));
 
@@ -178,8 +177,8 @@ const CustomSoftware = props => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row">
-        <Grid item container className={classes.itemContainer}>
+      <Grid item container direction="row" justifyContent="space-around">
+        <Grid item container className={classes.itemContainer} md>
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Digital Documents & Data</Typography>
@@ -203,12 +202,12 @@ const CustomSoftware = props => {
           <Grid item md>
             <Lottie
               options={documentsOptions}
-              style={{ maxHeight: 325, maxWidth: 275, minHeight: 275 }}
+              style={{ maxHeight: 325, maxWidth: 275, minHeight: 250 }}
             />
           </Grid>
         </Grid>
 
-        <Grid item container className={classes.itemContainer}>
+        <Grid item container className={classes.itemContainer} md>
           <Grid item md>
             <Lottie
               options={scaleOptions}
