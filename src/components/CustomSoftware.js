@@ -20,6 +20,8 @@ import Lottie from "react-lottie";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
+import automationAnimation from "../animations/automationAnimation/data.json";
+import uxAnimation from "../animations/uxAnimation/data";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -57,6 +59,24 @@ const CustomSoftware = props => {
     loop: true,
     autoplay: false,
     animationData: scaleAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const automationOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: automationAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const uxOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: uxAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -231,7 +251,12 @@ const CustomSoftware = props => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row">
+      <Grid
+        item
+        container
+        direction="row"
+        style={{ marginTop: "20em", marginBottom: "20em" }}
+      >
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
@@ -253,6 +278,64 @@ const CustomSoftware = props => {
               develop aholistic plan for the most effective implementation of
               technology.
             </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" justifyContent="space-between">
+        <Grid item container className={classes.itemContainer} md>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Automation</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body2" paragraph>
+                Why waste time when you don't have to?
+              </Typography>
+              <Typography variant="body2" paragraph>
+                We can help you identify processes with time or event based
+                actions which can now easily be automated
+              </Typography>
+              <Typography variant="body2" paragraph>
+                Increasing efficiency increase profit, leaving you more time to
+                focus on your business, not busywork.
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={automationOptions}
+              style={{ maxHeight: 290, maxWidth: 280 }}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid item container className={classes.itemContainer} md>
+          <Grid item md>
+            <Lottie
+              options={uxOptions}
+              style={{ maxHeight: 310, maxWidth: 155 }}
+            />
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                User Experience Design
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body2" align="right" paragraph>
+                A good desgin that isn't usable isn't a good desgin.
+              </Typography>
+              <Typography variant="body2" align="right" paragraph>
+                So why are so many pieces of software complicated, confusing,
+                and frustrating?
+              </Typography>
+              <Typography variant="body2" align="right" paragraph>
+                By prioritizing users and the real ways they interact with
+                technology we're able to develop unique, personable experience
+                that solve problems rather than create new ones
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
