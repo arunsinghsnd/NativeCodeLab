@@ -7,6 +7,7 @@ import {
   Typography,
   useMediaQuery,
   IconButton,
+  Hidden,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
@@ -44,6 +45,7 @@ const useStyles = makeStyles(theme => ({
 const CustomSoftware = props => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const documentsOptions = {
@@ -84,66 +86,94 @@ const CustomSoftware = props => {
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
-      <Grid item container direction="row">
-        <Grid
-          item
-          className={classes.arrowContainer}
-          style={{ marginRight: "1em", marginLeft: "-3.5em" }}
-        >
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/services"
-            onClick={() => {
-              props.setSelectedIndex(1);
-            }}
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent={matchesMD ? "center" : undefined}
+      >
+        <Hidden mdDown>
+          <Grid
+            item
+            className={classes.arrowContainer}
+            style={{ marginRight: "1em", marginLeft: "-3.5em" }}
           >
-            <img src={backArrow} alt="Back to Services Page" />
-          </IconButton>
-        </Grid>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/services"
+              onClick={() => {
+                props.setSelectedIndex(1);
+              }}
+            >
+              <img src={backArrow} alt="Back to Services Page" />
+            </IconButton>
+          </Grid>
+        </Hidden>
+
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography variant="h2">Custom Software Developemnt</Typography>
+            <Typography align={matchesMD ? "center" : undefined} variant="h2">
+              Custom Software Developemnt
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body2" paragraph>
+            <Typography
+              variant="body2"
+              align={matchesMD ? "center" : undefined}
+              paragraph
+            >
               Wheather we're replacing old software or inventing new solutions.
               Arc Developemnt is here to help your business tackle technology
             </Typography>
-            <Typography variant="body2" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body2"
+              paragraph
+            >
               Using regular commercial software leaves you with alot of stuff
               you don't need, without some of the you do need, and ultimately
               controls the way you work. Without using any software at all risk
               falling behind competitors and missing out on huge saving from
               increase efficiency.
             </Typography>
-            <Typography variant="body2" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body2"
+              paragraph
+            >
               Our custom solutions are desgined from the ground up with your
               needs, wants, and goals at the core. This collaborative process
               produces finely tuned software that is much more effective at
               improving your workflow and reducing costs than generalized
               options
             </Typography>
-            <Typography variant="body2" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body2"
+              paragraph
+            >
               We create exactly what you what, exactly how you want it.
             </Typography>
           </Grid>
         </Grid>
-        <Grid item className={classes.arrowContainer}>
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/mobileapps"
-            onClick={() => {
-              props.setSelectedIndex(2);
-            }}
-          >
-            <img
-              src={forwardArrow}
-              alt="Forwared to android and iOS App developemnt  page"
-            />
-          </IconButton>
-        </Grid>
+        <Hidden mdDown>
+          <Grid item className={classes.arrowContainer}>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/mobileapps"
+              onClick={() => {
+                props.setSelectedIndex(2);
+              }}
+            >
+              <img
+                src={forwardArrow}
+                alt="Forwared to android and iOS App developemnt  page"
+              />
+            </IconButton>
+          </Grid>
+        </Hidden>
       </Grid>
       <Grid
         item
@@ -173,7 +203,11 @@ const CustomSoftware = props => {
           direction="column"
           md
           alignItems="center"
-          style={{ maxWidth: "40em" }}
+          style={{
+            maxWidth: "40em",
+            marginTop: matchesMD ? "10em" : 0,
+            marginBottom: matchesMD ? "10em" : 0,
+          }}
         >
           <Grid item>
             <Typography variant="h4">Save Time</Typography>
@@ -198,8 +232,20 @@ const CustomSoftware = props => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justifyContent="space-between">
-        <Grid item container className={classes.itemContainer} md>
+      <Grid
+        item
+        container
+        alignItems={matchesMD ? "center" : undefined}
+        direction={matchesMD ? "column" : "row"}
+        justifyContent="space-between"
+      >
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+          md
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Digital Documents & Data</Typography>
@@ -281,8 +327,21 @@ const CustomSoftware = props => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justifyContent="space-between">
-        <Grid item container className={classes.itemContainer} md>
+      <Grid
+        item
+        container
+        alignItems={matchesMD ? "center" : undefined}
+        direction={matchesMD ? "column" : "row"}
+        justifyContent="space-between"
+        style={{ marginBottom: "10em" }}
+      >
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          style={{ marginBottom: matchesMD ? "15em" : 0 }}
+          md
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Automation</Typography>
