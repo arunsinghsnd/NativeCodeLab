@@ -15,6 +15,7 @@ import forwardArrow from "../assets/forwardArrow.svg";
 import lightbulb from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
+import roots from "../assets/root.svg";
 import Lottie from "react-lottie";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
@@ -227,6 +228,31 @@ const CustomSoftware = props => {
                 growth and reliability
               </Typography>
             </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row">
+        <Grid item container direction="column" alignItems="center">
+          <Grid item>
+            <img
+              src={roots}
+              alt="Tree with roots extending out"
+              height="450em"
+              width="450em"
+            />
+          </Grid>
+          <Grid item className={classes.itemContainer}>
+            <Typography variant="h4" gutterBottom align="center">
+              Root-Cause Analysis
+            </Typography>
+            <Typography variant="body2" align="center" paragraph>
+              Many probelms are marely symtoms of larger, Underlying issues.
+            </Typography>
+            <Typography variant="body2" align="center" paragraph>
+              We can help you thorounghly examine all areas of your business to
+              develop aholistic plan for the most effective implementation of
+              technology.
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
