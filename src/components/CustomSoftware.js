@@ -177,7 +177,7 @@ const CustomSoftware = props => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justifyContent="space-around">
+      <Grid item container direction="row" justifyContent="space-between">
         <Grid item container className={classes.itemContainer} md>
           <Grid item container direction="column" md>
             <Grid item>
