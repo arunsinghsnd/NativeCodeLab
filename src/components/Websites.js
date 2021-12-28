@@ -12,12 +12,7 @@ import { Link } from "react-router-dom";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
-import swiss from "../assets/swissKnife.svg";
-import access from "../assets/extendAccess.svg";
-import engagement from "../assets/increaseEngagement.svg";
-import Lottie from "react-lottie";
 
-import integrationAnimation from "../animations/integrationAnimation/data.json";
 import CallToAction from "./ui/CallToAction";
 
 import analytics from "../assets/analytics.svg";
@@ -52,14 +47,6 @@ const Websites = props => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: false,
-    animationData: integrationAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
   return (
     <Grid container direction="column">
       <Grid
@@ -101,7 +88,7 @@ const Websites = props => {
           <Grid item>
             <Typography
               variant="body2"
-              align={matchesMD ? "center" : undefined}
+              align={matchesSM ? "center" : undefined}
               paragraph
             >
               Having a website is a necessity in today's business world. They
@@ -137,7 +124,7 @@ const Websites = props => {
       <Grid
         item
         container
-        direction="row"
+        direction={matchesSM ? "column" : "row"}
         alignItems="center"
         className={classes.rowContainer}
         style={{ marginTop: "10em" }}
@@ -145,7 +132,11 @@ const Websites = props => {
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography
+                variant="h4"
+                align={matchesMD ? "center" : undefined}
+                gutterBottom
+              >
                 Analytics
               </Typography>
             </Grid>
@@ -158,11 +149,11 @@ const Websites = props => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item className={classes.paragraphContainer}>
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             gutterBottom
-            className={classes.paragraphContainer}
           >
             Knowledge is power, and data is 21st Century gold. Analyzing this
             data can reveal hidden patterns and treads in your business,
@@ -173,7 +164,7 @@ const Websites = props => {
       <Grid
         item
         container
-        direction="row"
+        direction={matchesSM ? "column" : "row"}
         alignItems="center"
         justifyContent="flex-end"
         className={classes.rowContainer}
@@ -182,7 +173,11 @@ const Websites = props => {
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography align="center" variant="h4" gutterBottom>
+              <Typography
+                align={matchesMD ? "center" : undefined}
+                variant="h4"
+                gutterBottom
+              >
                 E-commerce
               </Typography>
             </Grid>
@@ -194,18 +189,22 @@ const Websites = props => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item style={{ marginLeft: "1em" }}>
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             paragraph
-            className={classes.paragraphContainer}
           >
             It's no secret that pepole like to shop online.
           </Typography>
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             paragraph
-            className={classes.paragraphContainer}
           >
             In 2017 over $2.3 trillion was spent in e-commerce, and it's time
             for your slice of that pie.
@@ -215,15 +214,18 @@ const Websites = props => {
       <Grid
         item
         container
-        direction="row"
+        direction={matchesSM ? "column" : "row"}
         alignItems="center"
         className={classes.rowContainer}
-        style={{ marginTop: "10em", marginBottom: "10em" }}
       >
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography
+                align={matchesMD ? "center" : undefined}
+                variant="h4"
+                gutterBottom
+              >
                 Outreach
               </Typography>
             </Grid>
@@ -232,11 +234,15 @@ const Websites = props => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item style={{ marginLeft: "1em" }}>
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             gutterBottom
-            className={classes.paragraphContainer}
           >
             Draw people in with a dazzling websites. Showing off your products
             online is a great way to help customsers decide what's right for
@@ -247,16 +253,20 @@ const Websites = props => {
       <Grid
         item
         container
-        direction="row"
+        direction={matchesSM ? "column" : "row"}
         alignItems="center"
         justifyContent="flex-end"
         className={classes.rowContainer}
-        style={{ marginBottom: "10em" }}
+        style={{ marginTop: "10em", marginBottom: "10em" }}
       >
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography align="center" variant="h4" gutterBottom>
+              <Typography
+                align={matchesMD ? "center" : undefined}
+                variant="h4"
+                gutterBottom
+              >
                 Search Engine <br />
                 Optimization
               </Typography>
@@ -266,25 +276,29 @@ const Websites = props => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item style={{ marginLeft: "1em" }}>
+        <Grid
+          item
+          style={{ marginLeft: matchesSM ? 0 : "1em" }}
+          className={classes.paragraphContainer}
+        >
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             paragraph
-            className={classes.paragraphContainer}
           >
             How often you ever been to the second page of google results?
           </Typography>
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             paragraph
-            className={classes.paragraphContainer}
           >
             If you're like us, probably never.
           </Typography>
           <Typography
             variant="body2"
+            align={matchesSM ? "center" : undefined}
             paragraph
-            className={classes.paragraphContainer}
           >
             Customer don't go there either, so we make sure website is desgined
             to end up on top.
