@@ -21,6 +21,9 @@ import integrationAnimation from "../animations/integrationAnimation/data.json";
 import CallToAction from "./ui/CallToAction";
 
 import analytics from "../assets/analytics.svg";
+import seo from "../assets/seo.svg";
+import outreach from "../assets/outreach.svg";
+import ecommerce from "../assets/ecommerce.svg";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -37,8 +40,8 @@ const useStyles = makeStyles(theme => ({
       paddingRight: "1.5em",
     },
   },
-  itemContainer: {
-    maxWidth: "34em",
+  paragraphContainer: {
+    maxWidth: "30em",
   },
 }));
 
@@ -76,12 +79,15 @@ const Websites = props => {
             <IconButton
               style={{ backgroundColor: "transparent" }}
               component={Link}
-              to="/customsoftware"
+              to="/mobileapps"
               onClick={() => {
-                props.setSelectedIndex(1);
+                props.setSelectedIndex(2);
               }}
             >
-              <img src={backArrow} alt="Back to Custom software Developemnt " />
+              <img
+                src={backArrow}
+                alt="Back to Aandroid and IOS Developemnt page "
+              />
             </IconButton>
           </Grid>
         </Hidden>
@@ -118,18 +124,53 @@ const Websites = props => {
             <IconButton
               style={{ backgroundColor: "transparent" }}
               component={Link}
-              to="/websites"
+              to="/services"
               onClick={() => {
-                props.setSelectedIndex(3);
+                props.setSelectedIndex(0);
               }}
             >
-              <img
-                src={forwardArrow}
-                alt="Forwared Web Site  developemnt  page"
-              />
+              <img src={forwardArrow} alt="Forwared to Services page" />
             </IconButton>
           </Grid>
         </Hidden>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        alignItems="center"
+        className={classes.rowContainer}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Analytics
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img
+                src={analytics}
+                style={{ marginLeft: "-2.75em" }}
+                alt="grap with mangnifying glass revealing 1's and 0's"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Typography
+            variant="body2"
+            gutterBottom
+            className={classes.paragraphContainer}
+          >
+            Knowledge is power, and data is 21st Century gold. Analyzing this
+            data can reveal hidden patterns and treads in your business,
+            empowering you to make smarter descision with measurable effects.
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
