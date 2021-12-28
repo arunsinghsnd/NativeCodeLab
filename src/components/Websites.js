@@ -140,6 +140,7 @@ const Websites = props => {
         direction="row"
         alignItems="center"
         className={classes.rowContainer}
+        style={{ marginTop: "10em" }}
       >
         <Grid item>
           <Grid container direction="column">
@@ -166,6 +167,127 @@ const Websites = props => {
             Knowledge is power, and data is 21st Century gold. Analyzing this
             data can reveal hidden patterns and treads in your business,
             empowering you to make smarter descision with measurable effects.
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        alignItems="center"
+        justifyContent="flex-end"
+        className={classes.rowContainer}
+        style={{ marginTop: "10em", marginBottom: "10em" }}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography align="center" variant="h4" gutterBottom>
+                E-commerce
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img
+                src={ecommerce}
+                alt="grap with mangnifying glass revealing 1's and 0's"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item style={{ marginLeft: "1em" }}>
+          <Typography
+            variant="body2"
+            paragraph
+            className={classes.paragraphContainer}
+          >
+            It's no secret that pepole like to shop online.
+          </Typography>
+          <Typography
+            variant="body2"
+            paragraph
+            className={classes.paragraphContainer}
+          >
+            In 2017 over $2.3 trillion was spent in e-commerce, and it's time
+            for your slice of that pie.
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        alignItems="center"
+        className={classes.rowContainer}
+        style={{ marginTop: "10em", marginBottom: "10em" }}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Outreach
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img src={outreach} alt="megaphone" />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item style={{ marginLeft: "1em" }}>
+          <Typography
+            variant="body2"
+            gutterBottom
+            className={classes.paragraphContainer}
+          >
+            Draw people in with a dazzling websites. Showing off your products
+            online is a great way to help customsers decide what's right for
+            them before visiting in person.
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        alignItems="center"
+        justifyContent="flex-end"
+        className={classes.rowContainer}
+        style={{ marginBottom: "10em" }}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography align="center" variant="h4" gutterBottom>
+                Search Engine <br />
+                Optimization
+              </Typography>
+            </Grid>
+            <Grid item>
+              <img src={seo} alt="wesites standing on winner's podium" />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item style={{ marginLeft: "1em" }}>
+          <Typography
+            variant="body2"
+            paragraph
+            className={classes.paragraphContainer}
+          >
+            How often you ever been to the second page of google results?
+          </Typography>
+          <Typography
+            variant="body2"
+            paragraph
+            className={classes.paragraphContainer}
+          >
+            If you're like us, probably never.
+          </Typography>
+          <Typography
+            variant="body2"
+            paragraph
+            className={classes.paragraphContainer}
+          >
+            Customer don't go there either, so we make sure website is desgined
+            to end up on top.
           </Typography>
         </Grid>
       </Grid>
