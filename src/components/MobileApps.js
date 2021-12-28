@@ -108,14 +108,14 @@ const MobileApps = props => {
             <IconButton
               style={{ backgroundColor: "transparent" }}
               component={Link}
-              to="/mobileapps"
+              to="/websites"
               onClick={() => {
-                props.setSelectedIndex(2);
+                props.setSelectedIndex(3);
               }}
             >
               <img
                 src={forwardArrow}
-                alt="Forwared to android and iOS App developemnt  page"
+                alt="Forwared Web Site  developemnt  page"
               />
             </IconButton>
           </Grid>
