@@ -12,6 +12,9 @@ import { Link } from "react-router-dom";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
+import swiss from "../assets/swissKnife.svg";
+import access from "../assets/extendAccess.svg";
+import engagement from "../assets/increaseEngagement.svg";
 import Lottie from "react-lottie";
 
 import integrationAnimation from "../animations/integrationAnimation/data.json";
@@ -152,7 +155,7 @@ const MobileApps = props => {
           </Grid>
         </Grid>
         <Grid item md>
-          <Lottie options={defaultOptions}></Lottie>
+          <Lottie options={defaultOptions} style={{ maxWith: "20em" }} />
         </Grid>
         <Grid item container direction="column" md>
           <Grid item>
@@ -169,6 +172,46 @@ const MobileApps = props => {
               This significantly reduces costs and creates a more unified brand
               experience across all devices.
             </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" className={classes.rowContainer}>
+        {" "}
+        <Grid item container direction="column" alignItems="center" md>
+          {" "}
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Extend Functionality
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={swiss} alt="swiss army knife" />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" alignItems="center" md>
+          {" "}
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Extend Access
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img
+              src={access}
+              alt="tear-one-off sign"
+              style={{ maxWidth: "28em" }}
+            />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" alignItems="center" md>
+          {" "}
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Increase Engagement
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={engagement} alt="app with notification" />
           </Grid>
         </Grid>
       </Grid>
