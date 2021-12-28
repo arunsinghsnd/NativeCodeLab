@@ -22,6 +22,7 @@ import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
 import automationAnimation from "../animations/automationAnimation/data.json";
 import uxAnimation from "../animations/uxAnimation/data";
+import CallToAction from "./ui/CallToAction";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -30,15 +31,12 @@ const useStyles = makeStyles(theme => ({
   arrowContainer: {
     marginTop: "0.5em",
   },
-  mainContainer: {
+  rowContainer: {
     paddingLeft: "5em",
     paddingRight: "5em",
-    paddingTop: "2em",
-    paddingBottom: "10em",
     [theme.breakpoints.down("sm")]: {
       paddingLeft: "1.5em",
       paddingRight: "1.5em",
-      paddingTop: "1em",
     },
   },
   itemContainer: {
@@ -51,6 +49,7 @@ const CustomSoftware = props => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const documentsOptions = {
     loop: true,
@@ -89,12 +88,14 @@ const CustomSoftware = props => {
   };
 
   return (
-    <Grid container direction="column" className={classes.mainContainer}>
+    <Grid container direction="column">
       <Grid
         item
         container
         direction="row"
         justifyContent={matchesMD ? "center" : undefined}
+        className={classes.rowContainer}
+        style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
         <Hidden mdDown>
           <Grid
@@ -185,6 +186,7 @@ const CustomSoftware = props => {
         direction="row"
         justifyContent="center"
         style={{ marginTop: "15em", marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -242,6 +244,7 @@ const CustomSoftware = props => {
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
         justifyContent="space-between"
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -331,6 +334,7 @@ const CustomSoftware = props => {
         container
         direction="row"
         style={{ marginTop: "20em", marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid item container direction="column" alignItems="center">
           <Grid item>
@@ -362,7 +366,8 @@ const CustomSoftware = props => {
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
         justifyContent="space-between"
-        style={{ marginBottom: "10em" }}
+        style={{ marginBottom: "20em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -459,6 +464,9 @@ const CustomSoftware = props => {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
