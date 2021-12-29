@@ -11,8 +11,10 @@ import {
 import { Link } from "react-router-dom";
 
 import vision from "../assets/vision.svg";
+import technologyAnimation from "../animations/technologyAnimation/data.json";
 
 import CallToAction from "./ui/CallToAction";
+import Lottie from "react-lottie";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -40,6 +42,16 @@ const Revolution = props => {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: technologyAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <Grid container direction="column">
       <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
@@ -99,6 +111,72 @@ const Revolution = props => {
               towards that goal.
             </Typography>
           </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid
+        item
+        container
+        direction="row"
+        alignItems="center"
+        className={classes.rowContainer}
+      >
+        <Grid item container direction="column" lg style={{ maxWidth: "40em" }}>
+          <Grid item>
+            <Typography variant="h4" gutterBottom>
+              Technology
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body2" paragraph>
+              In 2013, Facebook invented a new way of building websites. This
+              new System, React.js, completely Revolutionizes the process and
+              practice of websites Development.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              Instead of chaining together long individual pages, like
+              traditional websites, React websites are built with little chunks
+              called components. These components are faster, easier to
+              maintian, and are easily reused and customized, each serving a
+              singular purpose.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              Two years later they shocked the world by realeasing a similar
+              system, React Native, for producing iOS and Android apps. Instead
+              of having to master two completely separted Development
+              plateforms, you can leverage the knowledge you already possesed
+              from building websites and reapply it direactly! This was a huge
+              leap forward.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              This teachnolgy is now being used by companies like AirBnB,
+              Microsoft, Netflix, Pinterestm Skype, Tesla, UserEats, and when
+              FaceBook purchased Instagram large portions of it were even
+              rebulid using React.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              Developer have since built on top of these systems by automating
+              project setup and developement, allowing creators to focus as much
+              as possible on their work itself.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              These techical advancements translate into saving by significantly
+              reducing the workload and stramlining the workflow for developing
+              new pieces of software, while also lowering the barrier to entry
+              for mobile app developement.
+            </Typography>
+            <Typography variant="body2" paragraph>
+              These puts personalization in your pocket- faster, better, and
+              more affordable than ever bedore.
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid item container justifyContent="flex-end" lg>
+          <Lottie
+            options={defaultOptions}
+            style={{ maxWidth: "40em", margin: 0 }}
+          />
         </Grid>
       </Grid>
 
