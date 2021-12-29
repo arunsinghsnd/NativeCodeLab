@@ -5,7 +5,6 @@ import {
   useTheme,
   Typography,
   useMediaQuery,
-  IconButton,
   Hidden,
   Avatar,
 } from "@material-ui/core";
@@ -53,8 +52,7 @@ const About = props => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
     <Grid container direction="column">
       <Grid
@@ -215,7 +213,7 @@ const About = props => {
             container
             direction="column"
             lg
-            alignItems={matchesMD ? "column" : undefined}
+            alignItems={matchesMD ? "center" : undefined}
             style={{ marginBottom: matchesMD ? "2.5em" : 0 }}
           >
             <Grid item>
@@ -250,7 +248,7 @@ const About = props => {
             container
             direction="column"
             lg
-            alignItems={matchesMD ? "column" : "flex-end"}
+            alignItems={matchesMD ? "center" : "flex-end"}
           >
             <Grid item>
               <img
