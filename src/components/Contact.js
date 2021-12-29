@@ -7,39 +7,18 @@ import {
   useMediaQuery,
   Hidden,
   Avatar,
+  Button,
+  TextField,
 } from "@material-ui/core";
+import background from "../assets/background.jpg";
 
 const useStyles = makeStyles(theme => ({
-  missionStatement: {
-    fontStyle: "italic",
-    fontWeight: 300,
-    fontSize: "1.5em",
-    lineHeight: 1.4,
-    maxWidth: "50em",
-  },
-  arrowContainer: {
-    marginTop: "0.5em",
-  },
-  rowContainer: {
-    paddingLeft: "5em",
-    paddingRight: "5em",
-    [theme.breakpoints.down("sm")]: {
-      paddingLeft: "1.5em",
-      paddingRight: "1.5em",
-    },
-  },
-  itemContainer: {
-    maxWidth: "34em",
-  },
-  avatar: {
-    height: "25em",
-    width: "25em",
-    [theme.breakpoints.down("sm")]: {
-      height: "20em",
-      width: "20em",
-      maxHeight: 300,
-      maxWidth: 300,
-    },
+  background: {
+    backgroundImage: `url(${background})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    height: "60em",
   },
 }));
 
@@ -49,7 +28,21 @@ const Contact = props => {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid container direction="row">
-      <Grid>This is Conect us page</Grid>
+      <Grid item container direction="column" lg={3}>
+        <Grid item>
+          <Typography variant="h2" style={{ lineHeight: 1 }}>
+            Contcat Us
+          </Typography>
+          <Typography
+            variant="body2"
+            style={{ color: theme.palette.common.blue }}
+          >
+            We're waiting.
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid item container className={classes.background} lg={9}></Grid>
     </Grid>
   );
 };
