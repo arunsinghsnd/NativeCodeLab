@@ -7,8 +7,12 @@ import {
   useMediaQuery,
   IconButton,
   Hidden,
+  Avatar,
 } from "@material-ui/core";
 import history from "../assets/history.svg";
+import profile from "../assets/FounderPic.jpg";
+import yearbook from "../assets/yearbook.svg";
+import puppy from "../assets/puppy.svg";
 
 const useStyles = makeStyles(theme => ({
   missionStatement: {
@@ -31,6 +35,10 @@ const useStyles = makeStyles(theme => ({
   },
   itemContainer: {
     maxWidth: "34em",
+  },
+  avatar: {
+    height: "25em",
+    width: "25em",
   },
 }));
 
@@ -123,6 +131,30 @@ const About = () => {
               style={{ maxHeight: "22em" }}
             />
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="column"
+        alignItems="center"
+        className={classes.rowContainer}
+      >
+        <Grid item>
+          <Typography variant="h4" gutterBottom align="center">
+            Team
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body2" paragraph align="center">
+            Arun Kumar Singh, Founder
+          </Typography>
+          <Typography variant="body2" paragraph align="center">
+            I started Coding when I was 17 years old.
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Avatar alt="founder" src={profile} className={classes.avatar} />
         </Grid>
       </Grid>
     </Grid>
