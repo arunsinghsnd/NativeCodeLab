@@ -5,8 +5,6 @@ import {
   useTheme,
   Typography,
   useMediaQuery,
-  Hidden,
-  Avatar,
   Button,
   TextField,
   Dialog,
@@ -175,7 +173,6 @@ const Contact = props => {
                 />
               </Grid>
               <Grid item>
-                {/* <img src={emailIcon} alt="phone icon" /> */}
                 <Typography
                   variant="body2"
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
@@ -199,7 +196,6 @@ const Contact = props => {
                 />
               </Grid>
               <Grid item>
-                {/* <img src={emailIcon} alt="phone icon" /> */}
                 <Typography
                   variant="body2"
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
