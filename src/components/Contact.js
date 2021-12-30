@@ -171,7 +171,12 @@ const Contact = props => {
                   variant="body2"
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
-                  +91-8427825355
+                  <a
+                    href="tel:8427825355"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    +91-8427825355
+                  </a>
                 </Typography>
               </Grid>
             </Grid>
@@ -190,7 +195,12 @@ const Contact = props => {
                   variant="body2"
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
-                  arunsinghsnd@gmail.com
+                  <a
+                    href="mailto:arunsinghsnd@gmail.com"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    arunsinghsnd@gmail.com
+                  </a>
                 </Typography>
               </Grid>
             </Grid>
@@ -250,7 +260,18 @@ const Contact = props => {
               justifyContent="center"
               style={{ marginTop: "2em" }}
             >
-              <Button variant="contained" className={classes.sendButtom}>
+              <Button
+                variant="contained"
+                disabled={
+                  name.length === 0 ||
+                  message.length === 0 ||
+                  phoneHelper.length !== 0 ||
+                  emailHelper.length !== 0 ||
+                  email.length === 0 ||
+                  phone.length === 0
+                }
+                className={classes.sendButtom}
+              >
                 Send Message{" "}
                 <img
                   src={airplane}
