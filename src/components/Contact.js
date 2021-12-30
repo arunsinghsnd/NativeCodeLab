@@ -27,13 +27,16 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover",
     height: "60em",
     paddingBottom: "10em",
+    [theme.breakpoints.down("md")]: {
+      backgroundImage: `url(${mobileBackground})`,
+    },
   },
   learnButton: {
     ...theme.typography.learnButtom,
     fontSize: "0.9rem",
     height: 45,
     padding: 5,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginBottom: "2em",
     },
   },
@@ -49,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginRight: 0,
       marginLeft: 0,
     },
@@ -93,15 +96,24 @@ const Contact = props => {
         alignItems="center"
         lg={4}
         xl={3}
+        style={{
+          marginBottom: matchesMD ? "5em" : 0,
+          marginTop: matchesSM ? "1em" : matchesMD ? "5em" : 0,
+        }}
       >
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h2" style={{ lineHeight: 1 }}>
+              <Typography
+                variant="h2"
+                align={matchesMD ? "center" : undefined}
+                style={{ lineHeight: 1 }}
+              >
                 Contcat Us
               </Typography>
               <Typography
                 variant="body2"
+                align={matchesMD ? "center" : undefined}
                 style={{ color: theme.palette.common.blue }}
               >
                 We're waiting.
@@ -144,19 +156,26 @@ const Contact = props => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container style={{ maxWidth: "20em" }}>
-              <Grid item>
+            <Grid
+              item
+              container
+              direction="column"
+              style={{ maxWidth: "20em" }}
+            >
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Name"
                   id="name"
+                  fullWidth
                   value={name}
                   onChange={event => setName(event.target.value)}
                 />
               </Grid>
-              <Grid item>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Email"
                   id="email"
+                  fullWidth
                   value={email}
                   onChange={event => setEmail(event.target.value)}
                 />
@@ -165,6 +184,7 @@ const Contact = props => {
                 <TextField
                   label="Phone"
                   id="phone"
+                  fullWidth
                   value={phone}
                   onChange={event => setPhone(event.target.value)}
                 />
@@ -177,6 +197,7 @@ const Contact = props => {
                 className={classes.message}
                 multiline
                 rows={10}
+                fullWidth
                 id="message"
                 onChange={event => setMessage(event.target.value)}
               />
@@ -203,30 +224,36 @@ const Contact = props => {
       <Grid
         item
         container
+        direction={matchesMD ? "column" : "row"}
         className={classes.background}
         lg={8}
         xl={9}
+        justifyContent={matchesMD ? "center" : undefined}
         alignItems="center"
       >
         <Grid
           item
           style={{
-            marginLeft: matchesSM ? 0 : "3em",
-            textAlign: matchesSM ? "center" : "inherit",
+            marginLeft: matchesMD ? 0 : "3em",
+            textAlign: matchesMD ? "center" : "inherit",
           }}
         >
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h2">
+              <Typography align={matchesMD ? "center" : undefined} variant="h2">
                 Simple Software.
                 <br /> Revolutionary Results.
               </Typography>
-              <Typography variant="subtitle2" style={{ fontSize: "1.5rem" }}>
+              <Typography
+                variant="subtitle2"
+                align={matchesMD ? "center" : undefined}
+                style={{ fontSize: "1.5rem" }}
+              >
                 Take a advantage of the 21st Century.
               </Typography>
               <Grid
                 container
-                justifyContent={matchesSM ? "center" : undefined}
+                justifyContent={matchesMD ? "center" : undefined}
                 item
               >
                 <Button

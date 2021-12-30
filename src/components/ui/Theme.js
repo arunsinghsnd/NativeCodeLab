@@ -85,6 +85,10 @@ export default createTheme({
       },
     },
     MuiInput: {
+      root: {
+        color: arcGrey,
+        fontWeight: 300,
+      },
       underline: {
         "&:before": {
           borderBottom: `2px solid ${arcBlue}`,
