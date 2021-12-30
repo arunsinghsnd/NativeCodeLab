@@ -53,6 +53,22 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 0,
     },
   },
+  message: {
+    border: `2px solid ${theme.palette.common.blue}`,
+    marginTop: "5em",
+    borderRadius: 5,
+  },
+  sendButtom: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    height: 45,
+    width: 245,
+    fontSize: "1rem",
+    backgroundColor: theme.palette.common.orange,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+  },
 }));
 
 const Contact = props => {
@@ -68,7 +84,7 @@ const Contact = props => {
 
   return (
     <Grid container direction="row">
-      <Grid item container direction="column" justifyContent="center" lg={4}>
+      <Grid item container direction="column" justifyContent="center" lg={3}>
         <Grid item>
           <Typography variant="h2" style={{ lineHeight: 1 }}>
             Contcat Us
@@ -117,7 +133,7 @@ const Contact = props => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container>
+        <Grid item container style={{ maxWidth: "20em" }}>
           <Grid item>
             <TextField
               label="Name"
@@ -143,9 +159,11 @@ const Contact = props => {
             />
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item style={{ maxWidth: "20em" }}>
           <TextField
             value={message}
+            InputProps={{ disableUnderline: true }}
+            className={classes.message}
             multiline
             rows={10}
             id="message"
@@ -153,8 +171,13 @@ const Contact = props => {
           />
         </Grid>
         <Grid item>
-          <Button variant="contained">
-            Send Message <img src={airplane} alt="paper airpalne" />
+          <Button variant="contained" className={classes.sendButtom}>
+            Send Message{" "}
+            <img
+              src={airplane}
+              alt="paper airpalne"
+              style={{ marginLeft: "1em" }}
+            />
           </Button>
         </Grid>
       </Grid>
@@ -163,7 +186,7 @@ const Contact = props => {
         item
         container
         className={classes.background}
-        lg={8}
+        lg={9}
         alignItems="center"
       >
         <Grid
