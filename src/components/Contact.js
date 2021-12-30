@@ -9,6 +9,8 @@ import {
   Avatar,
   Button,
   TextField,
+  Dialog,
+  DialogContent,
 } from "@material-ui/core";
 
 import ButtonArrow from "../components/ui/ButtonArrow";
@@ -90,6 +92,8 @@ const Contact = props => {
   const [phoneHelper, setPhoneHelper] = useState("");
 
   const [message, setMessage] = useState("");
+
+  const [open, setOpen] = useState(false);
 
   const onChange = event => {
     let valid;
@@ -271,6 +275,7 @@ const Contact = props => {
                   phone.length === 0
                 }
                 className={classes.sendButtom}
+                onClick={() => setOpen(true)}
               >
                 Send Message{" "}
                 <img
@@ -283,6 +288,92 @@ const Contact = props => {
           </Grid>
         </Grid>
       </Grid>
+
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogContent>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Confrim Message
+              </Typography>
+            </Grid>
+
+            <Grid item style={{ marginBottom: "0.5em" }}>
+              <TextField
+                label="Name"
+                id="name"
+                fullWidth
+                value={name}
+                onChange={event => setName(event.target.value)}
+              />
+            </Grid>
+            <Grid item style={{ marginBottom: "0.5em" }}>
+              <TextField
+                label="Email"
+                error={emailHelper.length !== 0}
+                helperText={emailHelper}
+                id="email"
+                fullWidth
+                value={email}
+                onChange={onChange}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                label="Phone"
+                error={phoneHelper.length !== 0}
+                helperText={phoneHelper}
+                id="phone"
+                fullWidth
+                value={phone}
+                onChange={onChange}
+              />
+            </Grid>
+          </Grid>
+
+          <Grid item style={{ maxWidth: "20em" }}>
+            <TextField
+              value={message}
+              InputProps={{ disableUnderline: true }}
+              className={classes.message}
+              multiline
+              rows={10}
+              fullWidth
+              id="message"
+              onChange={event => setMessage(event.target.value)}
+            />
+          </Grid>
+          <Grid item container>
+            <Grid item>
+              <Button color="primary" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="contained"
+                disabled={
+                  name.length === 0 ||
+                  message.length === 0 ||
+                  phoneHelper.length !== 0 ||
+                  emailHelper.length !== 0 ||
+                  email.length === 0 ||
+                  phone.length === 0
+                }
+                className={classes.sendButtom}
+                onClick={() => setOpen(true)}
+              >
+                Send Message{" "}
+                <img
+                  src={airplane}
+                  alt="paper airpalne"
+                  style={{ marginLeft: "1em" }}
+                />
+              </Button>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
 
       <Grid
         item
