@@ -6,6 +6,7 @@ import {
   Typography,
   useMediaQuery,
   IconButton,
+  Button,
   Hidden,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -44,6 +45,18 @@ const useStyles = makeStyles(theme => ({
     width: "12em",
     height: "10em",
   },
+  estimateButon: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    backgroundColor: theme.palette.common.orange,
+    height: 50,
+    width: 225,
+    fontSize: "1.25rem",
+    marginTop: "5em",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+  },
 }));
 
 const Estimate = () => {
@@ -79,6 +92,7 @@ const Estimate = () => {
         item
         container
         direction="column"
+        alignItems="center"
         lg
         style={{ marginRight: "2em", marginBottom: "25em" }}
       >
@@ -152,6 +166,24 @@ const Estimate = () => {
               />
             </Grid>
           </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="space-between"
+          style={{ width: "15em", marginTop: "3em" }}
+        >
+          <Grid item>
+            <img src={backArrow} alt="Previous Question" />
+          </Grid>
+          <Grid item>
+            <img src={forwardArrow} alt="Next Question" />
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" className={classes.estimateButon}>
+            Get Estimate
+          </Button>
         </Grid>
       </Grid>
     </Grid>
