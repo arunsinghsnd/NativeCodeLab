@@ -8,7 +8,7 @@ import {
   IconButton,
   Button,
 } from "@material-ui/core";
-import { cloneDeep, CloneDeep } from "lodash";
+import { cloneDeep } from "lodash";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
@@ -355,6 +355,24 @@ const Estimate = () => {
     setQuestions(newQuestions);
   };
 
+  const navigationPreviousDisabled = () => {
+    const currentActive = questions.filter(question => question.active);
+    if (currentActive[0].id === 1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const navigationNextDisabled = () => {
+    const currentActive = questions.filter(question => question.active);
+    if (currentActive[0].id === questions[questions.length - 1].id) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <Grid container direction="row">
       <Grid item container direction="column" lg>
@@ -436,13 +454,29 @@ const Estimate = () => {
           style={{ width: "18em", marginTop: "3em" }}
         >
           <Grid item>
-            <IconButton onClick={previousQuestion}>
-              <img src={backArrow} alt="Previous Question" />
+            <IconButton
+              disabled={navigationPreviousDisabled()}
+              onClick={previousQuestion}
+            >
+              <img
+                src={
+                  navigationPreviousDisabled() ? backArrowDisabled : backArrow
+                }
+                alt="Previous Question"
+              />
             </IconButton>
           </Grid>
           <Grid item>
-            <IconButton onClick={nextQuestion}>
-              <img src={forwardArrow} alt="Next Question" />
+            <IconButton
+              disabled={navigationNextDisabled()}
+              onClick={nextQuestion}
+            >
+              <img
+                src={
+                  navigationNextDisabled() ? forwardArrowDisabled : forwardArrow
+                }
+                alt="Next Question"
+              />
             </IconButton>
           </Grid>
         </Grid>
