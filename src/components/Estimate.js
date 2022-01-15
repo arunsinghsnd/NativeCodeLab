@@ -320,7 +320,7 @@ const Estimate = () => {
   // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const [questions, setQuestions] = useState(softwareQuestions);
+  const [questions, setQuestions] = useState(defaultQuestions);
 
   const defaultOptions = {
     loop: true,
@@ -379,9 +379,36 @@ const Estimate = () => {
     const activeIndex = currentActive[0].id - 1;
 
     const newSelected = newQuestions[activeIndex].options[id - 1];
-    newSelected.selected = !newSelected.selected;
+    const previousSelected = currentActive[0].options.filter(
+      option => option.selected
+    );
 
-    setQuestions(newQuestions);
+    switch (currentActive[0].subtitle) {
+      case "Select one.":
+        if (previousSelected[0]) {
+          previousSelected[0].selected = !previousSelected[0].selected;
+        }
+        newSelected.selected = !newSelected.selected;
+        break;
+      default:
+        newSelected.selected = !newSelected.selected;
+        break;
+    }
+
+    switch (newSelected.title) {
+      case "Custom Software Development":
+        setQuestions(softwareQuestions);
+        break;
+      case "Android/iOS App Developmentt":
+        setQuestions(softwareQuestions);
+        break;
+      case "Website & Web App's Development":
+        setQuestions(websiteQuestions);
+        break;
+      default:
+        setQuestions(newQuestions);
+        break;
+    }
   };
 
   return (
