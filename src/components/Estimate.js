@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   makeStyles,
   useTheme,
   Typography,
   useMediaQuery,
+  IconButton,
   Button,
 } from "@material-ui/core";
 import { cloneDeep, CloneDeep } from "lodash";
@@ -93,10 +94,6 @@ const defaultQuestions = [
     ],
   },
 ];
-
-const newQuestions = cloneDeep(defaultQuestions);
-newQuestions[0].options[0].selected = true;
-console.log(defaultQuestions[0].options[0]);
 
 const softwareQuestions = [
   { ...defaultQuestions[0], active: false },
@@ -318,10 +315,12 @@ const websiteQuestions = [
 
 const Estimate = () => {
   const classes = useStyles();
-  const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  //const theme = useTheme();
+  // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+
+  const [questions, setQuestions] = useState(softwareQuestions);
 
   const defaultOptions = {
     loop: true,
@@ -330,6 +329,30 @@ const Estimate = () => {
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
+  };
+
+  const nextQuestion = () => {
+    const newQuestions = cloneDeep(questions);
+    const currentActive = newQuestions.filter(question => question.active);
+    const activeIndex = currentActive[0].id - 1;
+    const nextIndex = activeIndex + 1;
+
+    newQuestions[activeIndex] = { ...currentActive[0], active: false };
+    newQuestions[nextIndex] = { ...newQuestions[nextIndex], active: true };
+
+    setQuestions(newQuestions);
+  };
+
+  const previousQuestion = () => {
+    const newQuestions = cloneDeep(questions);
+    const currentActive = newQuestions.filter(question => question.active);
+    const activeIndex = currentActive[0].id - 1;
+    const nextIndex = activeIndex - 1;
+
+    newQuestions[activeIndex] = { ...currentActive[0], active: false };
+    newQuestions[nextIndex] = { ...newQuestions[nextIndex], active: true };
+
+    setQuestions(newQuestions);
   };
 
   return (
@@ -353,7 +376,7 @@ const Estimate = () => {
         lg
         style={{ marginRight: "2em", marginBottom: "25em" }}
       >
-        {defaultQuestions
+        {questions
           .filter(question => question.active)
           .map((question, index) => (
             <React.Fragment key={index}>
@@ -410,13 +433,17 @@ const Estimate = () => {
           item
           container
           justifyContent="space-between"
-          style={{ width: "15em", marginTop: "3em" }}
+          style={{ width: "18em", marginTop: "3em" }}
         >
           <Grid item>
-            <img src={backArrow} alt="Previous Question" />
+            <IconButton onClick={previousQuestion}>
+              <img src={backArrow} alt="Previous Question" />
+            </IconButton>
           </Grid>
           <Grid item>
-            <img src={forwardArrow} alt="Next Question" />
+            <IconButton onClick={nextQuestion}>
+              <img src={forwardArrow} alt="Next Question" />
+            </IconButton>
           </Grid>
         </Grid>
         <Grid item>
