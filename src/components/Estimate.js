@@ -5,11 +5,9 @@ import {
   useTheme,
   Typography,
   useMediaQuery,
-  IconButton,
   Button,
-  Hidden,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { cloneDeep, CloneDeep } from "lodash";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
@@ -95,6 +93,10 @@ const defaultQuestions = [
     ],
   },
 ];
+
+const newQuestions = cloneDeep(defaultQuestions);
+newQuestions[0].options[0].selected = true;
+console.log(defaultQuestions[0].options[0]);
 
 const softwareQuestions = [
   { ...defaultQuestions[0], active: false },
