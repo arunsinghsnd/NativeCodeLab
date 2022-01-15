@@ -315,7 +315,7 @@ const websiteQuestions = [
 
 const Estimate = () => {
   const classes = useStyles();
-  //const theme = useTheme();
+  const theme = useTheme();
   // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -373,6 +373,17 @@ const Estimate = () => {
     }
   };
 
+  const handleSelect = id => {
+    const newQuestions = cloneDeep(questions);
+    const currentActive = newQuestions.filter(question => question.active);
+    const activeIndex = currentActive[0].id - 1;
+
+    const newSelected = newQuestions[activeIndex].options[id - 1];
+    newSelected.selected = !newSelected.selected;
+
+    setQuestions(newQuestions);
+  };
+
   return (
     <Grid container direction="row">
       <Grid item container direction="column" lg>
@@ -406,6 +417,7 @@ const Estimate = () => {
                     fontWeight: 500,
                     fontSize: "2.25rem",
                     marginTop: "5em",
+                    lineHeight: 1.25,
                   }}
                 >
                   {question.title}
@@ -421,8 +433,23 @@ const Estimate = () => {
               </Grid>
               <Grid item container>
                 {question.options.map(option => (
-                  <Grid item container direction="column" md>
-                    <Grid item style={{ maxWidth: "12em" }}>
+                  <Grid
+                    item
+                    container
+                    direction="column"
+                    md
+                    component={Button}
+                    onClick={() => handleSelect(option.id)}
+                    style={{
+                      display: "grid",
+                      textTransform: "none",
+                      borderRadius: 0,
+                      backgroundColor: option.selected
+                        ? theme.palette.common.orange
+                        : null,
+                    }}
+                  >
+                    <Grid item style={{ maxWidth: "14em" }}>
                       <Typography
                         variant="h6"
                         align="center"
