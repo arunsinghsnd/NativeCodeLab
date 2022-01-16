@@ -531,7 +531,7 @@ const Estimate = () => {
         .map(option =>
           option.map(newFeature => newFeatures.push(newFeature.title))
         );
-      setPlatforms(newFeatures);
+      setFeatures(newFeatures);
     }
   };
 
