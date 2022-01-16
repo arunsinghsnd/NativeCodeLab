@@ -350,7 +350,7 @@ const Estimate = () => {
   const [total, setTotal] = useState(0);
 
   const [service, setService] = useState([]);
-  const [platfroms, setPlatfroms] = useState([]);
+  const [platforms, setPlatforms] = useState([]);
   const [features, setFeatures] = useState([]);
   const [customFeatures, setCustomFeatures] = useState("");
   const [category, setCategory] = useState("");
@@ -504,6 +504,21 @@ const Estimate = () => {
     setTotal(cost);
   };
 
+  const getPlatforms = () => {
+    let newPlatforms = [];
+
+    if (questions.length > 2) {
+      questions
+        .filter(
+          question =>
+            question.title === "Which platforms do you need supported?"
+        )
+        .map(question => question.options.filter(option => option.selected))[0]
+        .map(option => newPlatforms.push(option.title));
+      setPlatforms(newPlatforms);
+    }
+  };
+
   return (
     <Grid container direction="row">
       <Grid item container direction="column" lg>
@@ -634,6 +649,7 @@ const Estimate = () => {
             onClick={() => {
               setDialogOpen(true);
               getTotal();
+              getPlatforms();
             }}
           >
             Get Estimate
@@ -722,6 +738,33 @@ const Estimate = () => {
                     <Grid>
                       <Typography variant="body2">
                         You want {service}
+                        {platforms.length > 0
+                          ? ` for ${
+                              //if only web application is selected...
+                              platforms.indexOf("Web Application") > -1 &&
+                              platforms.length === 1
+                                ? //then finish sentence here
+                                  "a Web Application."
+                                : //otherwise, if web application and another platform is selected...
+                                platforms.indexOf("Web Application") > -1 &&
+                                  platforms.length === 2
+                                ? //then finish the sentence here
+                                  `a Web Application and an ${platforms[1]}.`
+                                : //otherwise, if only one platform is selected which isn't web application...
+                                platforms.length === 1
+                                ? //then finish the sentence here
+                                  `an ${platforms[0]}`
+                                : //otherwise, if other two options are selected...
+                                platforms.length === 2
+                                ? //then finish the sentence here
+                                  "an iOS Application and an Android Application."
+                                : //otherwise if all three are selected...
+                                platforms.length === 3
+                                ? //then finish the sentence here
+                                  "a Web Application, an iOS Application, and an Android Application."
+                                : null
+                            }`
+                          : null}
                       </Typography>
                     </Grid>
                   </Grid>
