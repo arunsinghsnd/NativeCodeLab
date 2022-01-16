@@ -64,6 +64,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: "5em",
     borderRadius: 5,
   },
+  specialText: {
+    fontFamily: "Raleway",
+    fontWeight: 600,
+    fontSize: "1.5rem",
+    color: theme.palette.common.orange,
+  },
 }));
 
 const defaultQuestions = [
@@ -341,6 +347,8 @@ const Estimate = () => {
 
   const [message, setMessage] = useState("");
 
+  const [total, setTotal] = useState(0);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -461,6 +469,29 @@ const Estimate = () => {
       default:
         break;
     }
+  };
+
+  const getTotal = () => {
+    let cost = 0;
+
+    const selections = questions
+      .map(question => question.options.filter(option => option.selected))
+      .filter(question => question.length > 0);
+
+    selections.map(options => options.map(option => (cost += option.cost)));
+
+    if (questions.length > 2) {
+      const userCost = questions
+        .filter(question => question.title === "How many users do you expect?")
+        .map(question =>
+          question.options.filter(option => option.selected)
+        )[0][0].cost;
+      cost -= userCost;
+      cost *= userCost;
+      console.log(cost);
+    }
+
+    setTotal(cost);
   };
 
   return (
@@ -590,7 +621,10 @@ const Estimate = () => {
           <Button
             variant="contained"
             className={classes.estimateButon}
-            onClick={() => setDialogOpen(true)}
+            onClick={() => {
+              setDialogOpen(true);
+              getTotal();
+            }}
           >
             Get Estimate
           </Button>
@@ -658,6 +692,9 @@ const Estimate = () => {
             <Grid item>
               <Typography variant="body2" paragraph>
                 We can create this digital solution for an estimated
+                <span className={classes.specialText}>
+                  Rs-{total.toFixed(2)}
+                </span>
               </Typography>
               <Typography variant="body2" paragraph>
                 Fill out your name, phone number , and emial, place your
