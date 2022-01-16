@@ -458,7 +458,7 @@ const LandingPage = props => {
                 </Typography>
                 <Typography variant="subtitle2">
                   Say hello!{" "}
-                  <span role="img" aria-level="waving hand">
+                  <span role="img" aria-label="waving hand">
                     👋
                   </span>
                 </Typography>
