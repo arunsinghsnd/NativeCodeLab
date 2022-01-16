@@ -349,6 +349,13 @@ const Estimate = () => {
 
   const [total, setTotal] = useState(0);
 
+  const [service, setService] = useState([]);
+  const [platfroms, setPlatfroms] = useState([]);
+  const [features, setFeatures] = useState([]);
+  const [customFeatures, setCustomFeatures] = useState("");
+  const [category, setCategory] = useState("");
+  const [users, setUsers] = useState("");
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -425,12 +432,15 @@ const Estimate = () => {
     switch (newSelected.title) {
       case "Custom Software Development":
         setQuestions(softwareQuestions);
+        setService(newSelected.title);
         break;
       case "Android/iOS App Developmentt":
         setQuestions(softwareQuestions);
+        setService(newSelected.title);
         break;
       case "Website & Web App's Development":
         setQuestions(websiteQuestions);
+        setService(newSelected.title);
         break;
       default:
         setQuestions(newQuestions);
@@ -644,7 +654,7 @@ const Estimate = () => {
         </Grid>
         <DialogContent>
           <Grid container>
-            <Grid item container direction="column">
+            <Grid item container direction="column" md={7}>
               <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Name"
@@ -676,31 +686,77 @@ const Estimate = () => {
                   onChange={onChange}
                 />
               </Grid>
+              <Grid item style={{ maxWidth: "20em" }}>
+                <TextField
+                  value={message}
+                  InputProps={{ disableUnderline: true }}
+                  className={classes.message}
+                  multiline
+                  rows={10}
+                  fullWidth
+                  id="message"
+                  onChange={event => setMessage(event.target.value)}
+                />
+              </Grid>
+              <Grid item>
+                <Typography variant="body2" paragraph>
+                  We can create this digital solution for an estimated
+                  <span className={classes.specialText}>
+                    Rs-{total.toFixed(2)}
+                  </span>
+                </Typography>
+                <Typography variant="body2" paragraph>
+                  Fill out your name, phone number , and emial, place your
+                  request, and we'll get back to you with details moving
+                  forwared and a final price.
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item style={{ maxWidth: "20em" }}>
-              <TextField
-                value={message}
-                InputProps={{ disableUnderline: true }}
-                className={classes.message}
-                multiline
-                rows={10}
-                fullWidth
-                id="message"
-                onChange={event => setMessage(event.target.value)}
-              />
-            </Grid>
-            <Grid item>
-              <Typography variant="body2" paragraph>
-                We can create this digital solution for an estimated
-                <span className={classes.specialText}>
-                  Rs-{total.toFixed(2)}
-                </span>
-              </Typography>
-              <Typography variant="body2" paragraph>
-                Fill out your name, phone number , and emial, place your
-                request, and we'll get back to you with details moving forwared
-                and a final price.
-              </Typography>
+            <Grid item container direction="column" md={5}>
+              <Grid item>
+                <Grid container direction="column">
+                  <Grid item container alignItems="center">
+                    <Grid>
+                      <img src={check} alt="checkMark" />
+                    </Grid>
+                    <Grid>
+                      <Typography variant="body2">
+                        You want {service}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid item container alignItems="center">
+                    <Grid>
+                      <img src={check} alt="checkMark" />
+                    </Grid>
+                    <Grid>
+                      <Typography variant="body2">
+                        Second options check
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid item container alignItems="center">
+                    <Grid>
+                      <img src={check} alt="checkMark" />
+                    </Grid>
+                    <Grid>
+                      <Typography variant="body2">
+                        Third options check
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Button variant="contained" className={classes.estimateButon}>
+                  Place Request
+                  <img
+                    src={send}
+                    alt="paper Airplan"
+                    style={{ marginLeft: "0.5em" }}
+                  />
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </DialogContent>
