@@ -11,8 +11,7 @@ import {
   CardContent,
 } from "@material-ui/core";
 
-// import animationData from "../animations/landinganimation/data";
-import animationData from "../animations/estimateAnimation/data.json";
+import animationData from "../animations/landinganimation/data.json";
 import ButtonArrow from "../components/ui/ButtonArrow";
 import customSoftware from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
