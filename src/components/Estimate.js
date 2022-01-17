@@ -785,12 +785,13 @@ const Estimate = () => {
                 </Typography>
               </Grid>
               <Grid item container>
-                {question.options.map(option => (
+                {question.options.map((option, index) => (
                   <Grid
                     item
                     container
                     direction="column"
                     md
+                    key={index}
                     component={Button}
                     onClick={() => handleSelect(option.id)}
                     style={{
@@ -947,6 +948,7 @@ const Estimate = () => {
                   multiline
                   rows={10}
                   fullWidth
+                  placeholder="Tell us more about your project"
                   id="message"
                   onChange={event => setMessage(event.target.value)}
                 />
@@ -956,6 +958,7 @@ const Estimate = () => {
                   variant="body2"
                   align={matchesSM ? "center" : undefined}
                   paragraph
+                  style={{ lineHeight: 1.25 }}
                 >
                   We can create this digital solution for an estimated
                   <span className={classes.specialText}>
@@ -989,7 +992,18 @@ const Estimate = () => {
               </Hidden>
 
               <Grid item>
-                <Button variant="contained" className={classes.estimateButon}>
+                <Button
+                  variant="contained"
+                  className={classes.estimateButon}
+                  disabled={
+                    name.length === 0 ||
+                    message.length === 0 ||
+                    phoneHelper.length !== 0 ||
+                    emailHelper.length !== 0 ||
+                    email.length === 0 ||
+                    phone.length === 0
+                  }
+                >
                   Place Request
                   <img
                     src={send}
