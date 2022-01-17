@@ -19,7 +19,7 @@ import {
 } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo/NativeCodeLab-logo-white.png";
 import MenuIcon from "@material-ui/icons/Menu";
 
 function ElevationScroll(props) {

@@ -1,19 +1,19 @@
 import { createTheme } from "@material-ui/core/styles";
-const arcBlue = "#0B72B9";
-const arcOrange = "#FFBA60";
-const arcGrey = "#868686";
+const nclGreen = "#064233";
+const nclOrange = "#FFBA60";
+const nclGrey = "#868686";
 
 export default createTheme({
   palette: {
     common: {
-      blue: `${arcBlue}`,
-      orange: `${arcOrange}`,
+      blue: `${nclGreen}`,
+      orange: `${nclOrange}`,
     },
     primary: {
-      main: `${arcBlue}`,
+      main: `${nclGreen}`,
     },
     secondary: {
-      main: `${arcOrange}`,
+      main: `${nclOrange}`,
     },
   },
   typography: {
@@ -33,30 +33,30 @@ export default createTheme({
       fontFamily: "Ralewaye",
       fontWeight: 700,
       fontSize: "2.5rem",
-      color: `${arcBlue}`,
+      color: `${nclGreen}`,
       lineHeight: 1.5,
     },
     h3: {
       fontFamily: "Pacifico",
       fontSize: "2.5em",
-      color: arcBlue,
+      color: nclGreen,
     },
     h4: {
       fontFamily: "Ralewaye",
       fontWeight: 700,
       fontSize: "1.75rem",
-      color: `${arcBlue}`,
+      color: `${nclGreen}`,
     },
     h6: {
       fontFamily: "Ralewaye",
       fontWeight: 500,
-      color: `${arcBlue}`,
+      color: `${nclGreen}`,
       lineHeight: 1,
     },
     subtitle1: {
       fontWeight: 300,
       fontSize: "1.25rem",
-      color: `${arcGrey}`,
+      color: `${nclGrey}`,
     },
     subtitle2: {
       fontWeight: 300,
@@ -66,18 +66,18 @@ export default createTheme({
     body2: {
       fontWeight: 300,
       fontSize: "1.25rem",
-      color: `${arcGrey}`,
+      color: `${nclGrey}`,
     },
     caption: {
       fontSize: "1rem",
       fontWeight: 30,
-      color: arcGrey,
+      color: nclGrey,
     },
     learnButtom: {
-      borderColor: arcBlue,
+      borderColor: nclGreen,
       borderWidth: 2,
       textTransform: "none",
-      color: arcBlue,
+      color: nclGreen,
       borderRadius: 50,
       fontFamily: "Roboto",
       fontWeight: "blod",
@@ -86,21 +86,21 @@ export default createTheme({
   overrides: {
     MuiInputLabel: {
       root: {
-        color: arcBlue,
+        color: nclGreen,
         fontSize: "1rem",
       },
     },
     MuiInput: {
       root: {
-        color: arcGrey,
+        color: nclGrey,
         fontWeight: 300,
       },
       underline: {
         "&:before": {
-          borderBottom: `2px solid ${arcBlue}`,
+          borderBottom: `2px solid ${nclGreen}`,
         },
         "&:hover:not($disabled):not($focused):not($error):before": {
-          borderBottom: `2px solid ${arcBlue}`,
+          borderBottom: `2px solid ${nclGreen}`,
         },
       },
     },
