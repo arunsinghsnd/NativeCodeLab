@@ -26,7 +26,7 @@ const useStyle = makeStyles(theme => ({
   animation: {
     maxWidth: "50em",
     minWidth: "21em",
-    marginTop: "2em",
+    //marginTop: "2em",
     marginLeft: "10%",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "30em",
@@ -62,7 +62,7 @@ const useStyle = makeStyles(theme => ({
     },
   },
   mainContainer: {
-    marginTop: "5em",
+    marginTop: "0.5em",
     [theme.breakpoints.down("md")]: {
       marginTop: "3em",
     },
