@@ -4,7 +4,7 @@ import {
   makeStyles,
   useTheme,
   Typography,
-  //useMediaQuery,
+  useMediaQuery,
   IconButton,
   Button,
   Dialog,
@@ -330,9 +330,9 @@ const websiteQuestions = [
 const Estimate = () => {
   const classes = useStyles();
   const theme = useTheme();
-  // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [questions, setQuestions] = useState(defaultQuestions);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -582,11 +582,16 @@ const Estimate = () => {
 
   const softwareSelection = (
     <Grid container direction="column">
-      <Grid item container alignItems="center">
-        <Grid>
+      <Grid
+        item
+        container
+        alignItems="center"
+        style={{ marginBottom: "1.25em" }}
+      >
+        <Grid item xs={2}>
           <img src={check} alt="checkMark" />
         </Grid>
-        <Grid>
+        <Grid item xs={10}>
           <Typography variant="body2">
             You want {service}
             {platforms.length > 0
@@ -619,11 +624,16 @@ const Estimate = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid item container alignItems="center">
-        <Grid>
+      <Grid
+        item
+        container
+        alignItems="center"
+        style={{ marginBottom: "1.25em" }}
+      >
+        <Grid item xs={2}>
           <img src={check} alt="checkMark" />
         </Grid>
-        <Grid>
+        <Grid item xs={10}>
           <Typography variant="body2">
             {"with "}
             {/* if we have features... */}
@@ -653,10 +663,10 @@ const Estimate = () => {
         </Grid>
       </Grid>
       <Grid item container alignItems="center">
-        <Grid>
+        <Grid item xs={2}>
           <img src={check} alt="checkMark" />
         </Grid>
-        <Grid>
+        <Grid item xs={10}>
           <Typography variant="body2">
             The custom features will be of {customFeatures.toLowerCase()}
             {`, and the projects will be used by about ${users} users.`}
@@ -669,10 +679,10 @@ const Estimate = () => {
   const websiteSelection = (
     <Grid container direction="column">
       <Grid item container alignItems="center">
-        <Grid>
+        <Grid item xs={2}>
           <img src={check} alt="checkMark" />
         </Grid>
-        <Grid>
+        <Grid item xs={10}>
           <Typography variant="body2">
             You want{" "}
             {category === "Basic"
@@ -828,6 +838,8 @@ const Estimate = () => {
         style={{ zIndex: 1302 }}
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
+        fullWidth
+        maxWidth="lg"
       >
         <Grid container justifyContent="center">
           <Grid item>
@@ -837,8 +849,14 @@ const Estimate = () => {
           </Grid>
         </Grid>
         <DialogContent>
-          <Grid container>
-            <Grid item container direction="column" md={7}>
+          <Grid container justifyContent="space-around">
+            <Grid
+              item
+              container
+              direction="column"
+              md={7}
+              style={{ maxWidth: "20em" }}
+            >
               <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Name"
@@ -896,7 +914,13 @@ const Estimate = () => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container direction="column" md={5}>
+            <Grid
+              item
+              container
+              direction="column"
+              md={5}
+              style={{ maxWidth: "30em" }}
+            >
               <Grid item>
                 {questions.length > 2 ? softwareSelection : websiteSelection}
               </Grid>
