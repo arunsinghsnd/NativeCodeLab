@@ -433,14 +433,29 @@ const Estimate = () => {
       case "Custom Software Development":
         setQuestions(softwareQuestions);
         setService(newSelected.title);
+        setPlatforms([]);
+        setFeatures([]);
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
-      case "Android/iOS App Developmentt":
+      case "Android/iOS App Development":
         setQuestions(softwareQuestions);
         setService(newSelected.title);
+        setPlatforms([]);
+        setFeatures([]);
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
       case "Website & Web App's Development":
         setQuestions(websiteQuestions);
         setService(newSelected.title);
+        setPlatforms([]);
+        setFeatures([]);
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
       default:
         setQuestions(newQuestions);
