@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  useScrollTrigger,
+  makeStyles,
+  Tabs,
+  Tab,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
+  SwipeableDrawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@material-ui/core";
 
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-import { IconButton, Menu, MenuItem } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 
 function ElevationScroll(props) {
   const { children } = props;
